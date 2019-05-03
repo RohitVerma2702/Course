@@ -7,7 +7,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
   <meta name="generator" content="">
-  <title>Rohit Verma</title>
+  <title>{{ blog.title }}</title>
 
   <!-- Bootstrap core CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -48,33 +48,17 @@
 
   <main role="main">
 
-    <section class="jumbotron text-center">
-      <div class="container">
-        <h1 class="jumbotron-heading">Rohit Verma</h1>
-        <p class="lead text-muted">Your Full stack Developer!</p>
-        <p>
-          <a href="mailto:verma199727@gmail.com" class="btn btn-primary my-2">Contact Me</a>
-        </p>
-        <img src="{% static 'Rohit.jpg' %}"/ height="300">
-      </div>
-    </section>
-
     <div class="album py-5 bg-light">
       <div class="container">
-
+        <h3>{{ blog.title }}</h3>
+        <p class="text-muted">Updated: {{ blog.pub_date }}</p>
         <div class="row">
-
-          {% for job in jobs.all %}
-          <div class="col-md-4">
-            <div class="card mb-4 shadow-sm">
-              <img class="img-fluid" src="{{ job.image.url }}" alt="">
-              <div class="card-body">
-                <p class="card-text">{{ job.summary }}</p>
-              </div>
-            </div>
+          <div class="col-sm-4">
+            <img class="img-fluid" src="{{ blog.image.url }}" alt="Blog Image">
           </div>
-          {% endfor %}
-
+          <div class="col-sm-8">
+            <p class="text-justify">{{ blog.body }}</p>
+          </div>
         </div>
       </div>
     </div>
