@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h3 class="py-5">Create</h3>
+
+{% if error %}
+  {{ error }}
+{% endif %}
+<form class="form-group" action="{% url 'create' %}" method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+  <div class="row pb-1">
+    <div class="col-md-4">
+      <label>Title</label>
+      <input class="form-control" type="text" name="title">
+    </div>
+  </div>
+  <div class="row pb-1">
+    <div class="col-md-4">
+      <label>URL</label>
+      <input class="form-control" type="textbox" name="url">
+    </div>
+  </div>
+  <div class="row pb-1">
+    <div class="col-md-4">
+      <label>Body</label>
+      <input class="form-control" type="textbox" name="body">
+    </div>
+  </div>
+  <div class="row pb-1">
+    <div class="col-md-4">
+      <label>Icon</label>
+      <input class="form-control" type="file" name="icon">
+    </div>
+  </div>
+  <div class="row pb-1">
+    <div class="col-md-4">
+      <label>Image</label>
+      <input class="form-control" type="file" name="image">
+    </div>
+  </div>
+  <div class="row pb-1">
+    <div class="col-md-4">
+      <input class="btn btn-primary" type="submit" value="Add">
+    </div>
+  </div>
+</form>
+
+{% endblock %}
